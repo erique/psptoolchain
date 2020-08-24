@@ -14,7 +14,7 @@
  mkdir build-psp && cd build-psp || { exit 1; }
 
  ## Configure the build.
- ../configure --prefix="$PSPDEV" --target="psp" --enable-languages="c,c++" --with-newlib --enable-cxx-flags="-G0" || { exit 1; }
+ CC="gcc -fgnu89-inline" CXX="g++ -fgnu89-inline" ../configure --prefix="$PSPDEV" --target="psp" --enable-languages="c,c++" --with-newlib --enable-cxx-flags="-G0" || { exit 1; }
 
  ## Compile and install.
- make clean && CFLAGS_FOR_TARGET="-G0" make -j 2 && make install && make clean || { exit 1; }
+ make clean && CFLAGS_FOR_TARGET="-G0" make -j 4 && make install && make clean || { exit 1; }

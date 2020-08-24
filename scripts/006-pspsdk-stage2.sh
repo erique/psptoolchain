@@ -3,7 +3,7 @@
 
  ## Download the source code.
  if test ! -d "pspsdk"; then
-  svn export svn://svn.pspdev.org/psp/trunk/pspsdk || { exit 1; }
+  git clone https://github.com/erique/pspsdk.git || { exit 1; }
  fi
 
  ## Enter the source directory.

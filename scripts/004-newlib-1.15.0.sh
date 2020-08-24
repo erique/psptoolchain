@@ -17,4 +17,4 @@
  ../configure --prefix="$PSPDEV" --target="psp" || { exit 1; }
 
  ## Compile and install.
- make clean && make -j 2 && make install && make clean || { exit 1; }
+ make clean && make && make install && make clean || { exit 1; }
