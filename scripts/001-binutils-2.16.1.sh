@@ -20,4 +20,4 @@
  if [[ x`uname` == x"Darwin" ]]; then MAKE=gmake; else MAKE=make; fi
 
  ## Compile and install.
- make clean && gmake -j 4 --eval="%.o: %.m" && make install MAKEINFO=true && make clean || { exit 1; }
+ make clean && $MAKE -j 4 --eval="%.o: %.m" && make install MAKEINFO=true && make clean || { exit 1; }
