@@ -14,7 +14,7 @@
  mkdir build-psp && cd build-psp || { exit 1; }
 
  ## Configure the build.
- CC=gcc-9 CXX=gcc-9 CFLAGS="-g -O2 -Wno-error=unused-but-set-variable -Wno-error=implicit-fallthrough= -Wno-error=unused-value -Wno-error=cast-function-type -Wno-error=format-overflow= -Wno-error=pointer-compare -std=gnu89 -D_FORTIFY_SOURCE=0" ../configure --prefix="$PSPDEV" --target="psp" --disable-nls || { exit 1; }
+ CC=gcc-9 CXX=gcc-9 CFLAGS="-g -O2 -Wno-error=unused-but-set-variable -Wno-error=implicit-fallthrough= -Wno-error=unused-value -Wno-error=cast-function-type -Wno-error=format-overflow= -Wno-error=pointer-compare -std=gnu89 -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=0" ../configure --prefix="$PSPDEV" --target="psp" --disable-nls || { exit 1; }
 
  ## Compile and install.
  make clean && make -j 4 MAKEINFO=true && make install MAKEINFO=true && make clean || { exit 1; }
