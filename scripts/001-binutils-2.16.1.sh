@@ -14,7 +14,7 @@
  mkdir build-psp && cd build-psp || { exit 1; }
 
  ## Configure the build.
- CFLAGS="-g -O2 -D_FORTIFY_SOURCE=0" ../configure --prefix="$PSPDEV" --target="psp" --enable-install-libbfd || { exit 1; }
+ CFLAGS="-O2 -D_FORTIFY_SOURCE=0" ../configure --prefix="$PSPDEV" --target="psp" --enable-install-libbfd || { exit 1; }
 
  ## Compile and install.
  make clean && make -j 4 --eval="%.o: %.m" && make install MAKEINFO=true && make clean || { exit 1; }
