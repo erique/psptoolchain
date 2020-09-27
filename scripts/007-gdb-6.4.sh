@@ -2,7 +2,7 @@
 # gdb-6.4.sh by Dan Peori (danpeori@oopo.net)
 
  ## Download the source code.
- wget --continue ftp://ftp.gnu.org/pub/gnu/gdb/gdb-6.4a.tar.bz2 || { exit 1; }
+ wget --continue https://ftp.gnu.org/pub/gnu/gdb/gdb-6.4a.tar.bz2 || { exit 1; }
 
  ## Unpack the source code.
  rm -Rf gdb-6.4 && tar xfvj gdb-6.4a.tar.bz2 || { exit 1; }
