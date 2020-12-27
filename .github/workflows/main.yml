@@ -1,0 +1,36 @@
+name: psptoolchain
+
+on:
+  push:
+  pull_request:
+    branches: [ master ]
+
+  workflow_dispatch:
+
+jobs:
+  linux:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Install deps
+        run: sudo apt install autoconf automake bison flex gcc-9 libncurses-dev make subversion texinfo wget libusb-dev
+
+      - name: Build
+        run: |
+          cd $GITHUB_WORKSPACE
+          ./toolchain-local.sh
+  macos:
+    runs-on: macos-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Install deps
+        run: brew install autoconf automake flex gcc@9 ncurses make subversion texinfo wget libusb libusb-compat sdl
+
+      - name: Build
+        run: |
+          cd $GITHUB_WORKSPACE
+          ./toolchain-local.sh

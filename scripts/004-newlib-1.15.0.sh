@@ -14,7 +14,7 @@
  mkdir build-psp && cd build-psp || { exit 1; }
 
  ## Configure the build.
- ../configure --prefix="$PSPDEV" --target="psp" || { exit 1; }
+ CFLAGS_FOR_BUILD="-Wno-implicit-function-declaration" ../configure --prefix="$PSPDEV" --target="psp" || { exit 1; }
 
  ## Compile and install.
  make clean && make && make install && make clean || { exit 1; }

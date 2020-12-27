@@ -14,7 +14,7 @@
  mkdir build-psp && cd build-psp || { exit 1; }
 
  ## Configure the build.
- CFLAGS="-O2 -D_FORTIFY_SOURCE=0" ../configure --prefix="$PSPDEV" --target="psp" --enable-install-libbfd || { exit 1; }
+ CFLAGS="-O2 -D_FORTIFY_SOURCE=0 -DSTDC_HEADERS" ../configure --prefix="$PSPDEV" --target="psp" --enable-install-libbfd || { exit 1; }
 
  ## gmake is used on OSX; on others we don't use it
  if [[ x`uname` == x"Darwin" ]]; then MAKE=gmake; else MAKE=make; fi
